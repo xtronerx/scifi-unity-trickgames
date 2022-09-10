@@ -6,7 +6,9 @@ using UnityEngine;
 public class Ability : MonoBehaviour
 {
     //<summery> Each player health goes here </summery>
-    protected int intHealth;
+    protected int intMaxHealth;
+
+    private int intHealth;
 
     //<summery> Cooldown for each special move </summery
     protected int intCooldown;
@@ -21,7 +23,8 @@ public class Ability : MonoBehaviour
     {
         Setup();
         _HealthText = GameObject.Find("Health").GetComponent<TextMeshProUGUI>();
-        _HealthText.text = intHealth.ToString();
+        _HealthText.text = intMaxHealth.ToString();
+        intHealth = intMaxHealth;
     }
 
     //<summery> this function calls in Start and you can do your needage of Start here </summery>
