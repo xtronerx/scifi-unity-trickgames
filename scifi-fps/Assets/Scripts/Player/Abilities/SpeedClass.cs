@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpeedClass : Ability
 {
-    private Player.Movement PlayerMovement;
+    private Player.FpsController PlayerMovement;
     //<summery> This function calls in Awake and has job to setup your variables </summery>
     public override void Setup()
     {
         intHealth = 100;
         intCooldown = 20;
-        PlayerMovement = GetComponent<Player.Movement>();
+        PlayerMovement = GetComponent<Player.FpsController>();
     }
 
     //<summery> this function calls in Update and that's your main function </summery>
@@ -26,8 +26,10 @@ public class SpeedClass : Ability
 
     private IEnumerator BeSpeedy()
     {
-        PlayerMovement.playerSpeed = new float[3] { 8f, 8f, 8f};
+        PlayerMovement.walkMaxSpeed = 12f;
+        PlayerMovement.sprintMaxSpeed = 12f;
         yield return new WaitForSeconds(5f);
-        PlayerMovement.playerSpeed = new float[3] { 2f, 4f, 1f };
+        PlayerMovement.walkMaxSpeed = 5f; 
+        PlayerMovement.sprintMaxSpeed = 10f;
     }
 }
