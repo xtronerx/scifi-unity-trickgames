@@ -6,14 +6,14 @@ public class InvisibleClass : Ability
     private GameObject player;
 
     //<summery> This function calls in Awake and has job to setup your variables </summery>
-    public override void Setup() {
+    protected override void Setup() {
         intMaxHealth = 100;
         intCooldown = 60;
         player = GameObject.Find("Cylinder");
     }
 
     //<summery> this function calls in Update and that's your main function </summery>
-    public override bool Worker() {
+    protected override bool Worker() {
         if (Input.GetKey(KeyCode.E))
         {
             StartCoroutine(BeInvisible());

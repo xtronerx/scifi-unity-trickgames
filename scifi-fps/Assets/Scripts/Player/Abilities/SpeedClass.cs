@@ -6,7 +6,7 @@ public class SpeedClass : Ability
 {
     private Player.FpsController PlayerMovement;
     //<summery> This function calls in Awake and has job to setup your variables </summery>
-    public override void Setup()
+    protected override void Setup()
     {
         intMaxHealth = 100;
         intCooldown = 20;
@@ -14,7 +14,7 @@ public class SpeedClass : Ability
     }
 
     //<summery> this function calls in Update and that's your main function </summery>
-    public override bool Worker()
+    protected override bool Worker()
     {
         if (Input.GetKey(KeyCode.E))
         {
@@ -26,8 +26,8 @@ public class SpeedClass : Ability
 
     private IEnumerator BeSpeedy()
     {
-        PlayerMovement.walkMaxSpeed = 12f;
-        PlayerMovement.sprintMaxSpeed = 12f;
+        PlayerMovement.walkMaxSpeed = 13f;
+        PlayerMovement.sprintMaxSpeed = 13f;
         yield return new WaitForSeconds(5f);
         PlayerMovement.walkMaxSpeed = 5f; 
         PlayerMovement.sprintMaxSpeed = 10f;

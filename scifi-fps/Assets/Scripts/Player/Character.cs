@@ -8,6 +8,6 @@ public class Character : MonoBehaviour
     private readonly string AbilityClass;
     private void Awake()
     {
-        gameObject.AddComponent(System.Type.GetType("SpeedClass"));
+        gameObject.AddComponent(System.Type.GetType("DouubleJumpClass"));
     }
 }

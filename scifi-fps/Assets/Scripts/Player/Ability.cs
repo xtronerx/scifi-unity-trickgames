@@ -17,7 +17,7 @@ public class Ability : MonoBehaviour
 
     private bool _bolCooldown;
     //<summery> This function calls in Awake and has job to setup your variables </summery>
-    public virtual void Setup() { }
+    protected virtual void Setup() { }
 
     void Awake()
     {
@@ -28,7 +28,7 @@ public class Ability : MonoBehaviour
     }
 
     //<summery> this function calls in Start and you can do your needage of Start here </summery>
-    public virtual void Activation() { }
+    protected virtual void Activation() { }
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class Ability : MonoBehaviour
     }
 
     //<summery> this function calls in Update and that's your main function </summery>
-    public virtual bool Worker() { return false; }
+    protected virtual bool Worker() { return false; }
 
     void Update()
     {

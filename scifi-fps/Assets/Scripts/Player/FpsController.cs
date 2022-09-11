@@ -36,7 +36,7 @@ namespace Player
         private bool sprinting = false;
         private bool jumping = false;
         private bool canJump = true;
-        private bool isGrounded = false;
+        public bool isGrounded = false;
         private void Start()
         {
             PlayerRotation = new Vector3(transform.localRotation.eulerAngles.x, 0, transform.localRotation.eulerAngles.z);
@@ -157,7 +157,7 @@ namespace Player
         }
 
 
-        private void Jump()
+        public void Jump()
         {
             isGrounded = false;
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
@@ -172,7 +172,7 @@ namespace Player
         {
             inputDir.x = Input.GetAxisRaw("Horizontal");
             inputDir.y = Input.GetAxisRaw("Vertical");
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (isGrounded)
                 {
