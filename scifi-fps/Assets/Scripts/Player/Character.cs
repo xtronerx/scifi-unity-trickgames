@@ -6,8 +6,25 @@ public class Character : MonoBehaviour
 {
     
     private readonly string AbilityClass;
+    private Ability CharacterType;
+    [Header("Smoothness")]
+    [Range(0, 90)]
+    [Tooltip("Smoothness Speed of Health Slider")]
+    [SerializeField]
+    private byte HealthBarSmoothness = 70;
     private void Awake()
     {
-        gameObject.AddComponent(System.Type.GetType("DouubleJumpClass"));
+        CharacterType = gameObject.AddComponent(System.Type.GetType("DouubleJumpClass")) as Ability;
+        CharacterType.InteractObjectConstructor(HealthBarSmoothness);
+    }
+
+    void Start()
+    {
+        TakeDamage(50);   
+    }
+
+    public void TakeDamage(byte intDamage)
+    {
+        CharacterType.TakeDamage(intDamage);
     }
 }
