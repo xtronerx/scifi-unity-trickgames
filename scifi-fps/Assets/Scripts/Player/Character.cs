@@ -18,6 +18,11 @@ public class Character : MonoBehaviour
         CharacterType.InteractObjectConstructor(HealthBarSmoothness);
     }
 
+    private void Start()
+    {
+        TakeDamage(151);
+    }
+
     public void TakeDamage(byte intDamage)
     {
         CharacterType.TakeDamage(intDamage);

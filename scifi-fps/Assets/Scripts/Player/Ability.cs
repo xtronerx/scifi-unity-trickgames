@@ -16,10 +16,11 @@ public class Ability : MonoBehaviour
     //<summery> Cooldown for each special move </summery
     protected ushort intCooldown;
 
-    private TextMeshProUGUI _HealthText;
     private Slider _HealthSlider;
+    private CanvasRenderer _HealthCanvas;
 
     private bool _bolCooldown;
+
     //<summery> This function calls in Awake and has job to setup your variables </summery>
     protected virtual void Setup() { }
 
@@ -33,9 +34,8 @@ public class Ability : MonoBehaviour
     void Awake()
     {
         Setup();
-        _HealthText = GameObject.Find("Health").GetComponent<TextMeshProUGUI>();
         _HealthSlider = GameObject.Find("Health Bar").GetComponent<Slider>();
-        _HealthText.text = intMaxHealth.ToString();
+        _HealthCanvas = GameObject.Find("Health Bar Image").GetComponent<CanvasRenderer>();
         intHealth = intMaxHealth;
     }
 
@@ -64,7 +64,11 @@ public class Ability : MonoBehaviour
     {
         if(_HealthSlider.value * (intMaxHealth / 100) != intHealth)
         {
-            _HealthSlider.value = Mathf.MoveTowards(_HealthSlider.value, intHealth / (intMaxHealth / 100), HealthbarSliderSmoothness * Time.deltaTime);//Mathf.SmoothDamp(_HealthSlider.value, intHealth, ref intCurrentVelocity, 10 * Time.deltaTime);
+            _HealthSlider.value = Mathf.MoveTowards(_HealthSlider.value, 
+                intHealth / (intMaxHealth / 100), 
+                HealthbarSliderSmoothness * Time.deltaTime);
+            if (_HealthSlider.value < 50) _HealthCanvas.SetColor(Color.red);
+            else _HealthCanvas.SetColor(Color.white);
         }
     }
 
@@ -80,6 +84,6 @@ public class Ability : MonoBehaviour
     public void TakeDamage(byte intDamage)
     {
         intHealth -= intDamage;
-        _HealthText.text = intHealth.ToString();
+        
     }
 }
