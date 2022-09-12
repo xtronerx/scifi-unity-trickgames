@@ -8,7 +8,7 @@ public class SpeedClass : Ability
     //<summery> This function calls in Awake and has job to setup your variables </summery>
     public override void Setup()
     {
-        intHealth = 100;
+        intMaxHealth = 100;
         intCooldown = 20;
         PlayerMovement = GetComponent<Player.FpsController>();
     }

@@ -9,10 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3068090257969203256}
-  - component: {fileID: 3068090257969203257}
-  - component: {fileID: 3068090257969203263}
+<<<<<<< HEAD
   - component: {fileID: 3068090257969203262}
+  - component: {fileID: 3068090257969203263}
+  - component: {fileID: 3068090257969203257}
   - component: {fileID: 3068090257969203260}
+  - component: {fileID: 1645127090}
+=======
+  - component: {fileID: 3068090257969203263}
+>>>>>>> f2b77cb19e2d1bc3bc93d76e6cdb53d979b3c91e
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -38,50 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3068090257969203257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3068090257969203259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 904f6ad27f761144690f07415c3f95ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 7
-  sprintSpeed: 10
-  groundDrag: 4
-  gravityForce: 15
-  jumpForce: 15
-  jumpCooldown: 0.25
-  airMultiplier: 0.4
-  crouchSpeed: 3.5
-  crouchYScale: 0.5
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 2147483647
-  maxSlopeAngle: 45
-  playerOrientation: {fileID: 3068090259087663420}
---- !u!136 &3068090257969203263
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3068090257969203259}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!54 &3068090257969203262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,6 +60,71 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+=======
+>>>>>>> f2b77cb19e2d1bc3bc93d76e6cdb53d979b3c91e
+--- !u!136 &3068090257969203263
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068090257969203259}
+  m_Material: {fileID: 0}
+<<<<<<< HEAD
+  m_IsTrigger: 0
+  m_Enabled: 1
+=======
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+>>>>>>> f2b77cb19e2d1bc3bc93d76e6cdb53d979b3c91e
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+--- !u!114 &3068090257969203257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068090257969203259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5bb95bf6a5bcd44bd4fba527d433bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 7
+  sprintSpeed: 10
+  groundDrag: 3
+  gravityForce: 15
+  speedIncreaseMultiplier: 1.5
+  slopeIncreaseMultiplier: 2.5
+  slideSpeed: 30
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  crouchSpeed: 3.5
+  crouchYScale: 0.5
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  maxSlopeAngle: 45
+  playerOrientation: {fileID: 3068090259087663420}
+  sliding: 0
 --- !u!114 &3068090257969203260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,16 +134,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 3068090257969203259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbeb9ff899020cf4bba0c367151844ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 7579a3b5e5ed6894eafef36fe57bf4e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivityX: 10
   sensitivityY: 10
-  multiplier: 0.1
+  overallSensitivityMultiplier: 0.1
   maxLookUpRotation: 80
   maxLookDownRotation: 80
   playerOrientation: {fileID: 3068090259087663420}
-  camHolder: {fileID: 0}
+  cameraHolderObject: {fileID: 0}
+--- !u!114 &1645127090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068090257969203259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85eca5d3745b5d45b0936be02911166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 3068090259087663420}
+  playerObj: {fileID: 3068090257969203256}
+  maxSlideTime: 0.75
+  slideForce: 200
+  slideYScale: 0.5
+  slideKey: 114
+=======
+>>>>>>> f2b77cb19e2d1bc3bc93d76e6cdb53d979b3c91e
 --- !u!1 &3068090258120860487
 GameObject:
   m_ObjectHideFlags: 0

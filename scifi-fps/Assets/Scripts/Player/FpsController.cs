@@ -7,7 +7,7 @@ namespace Player
         [Header("Camera\n")]
         public Camera fpsCam;
         public float lookSensitivity = 4.5f;
-        public float smoothTime = 6.5f;
+        public float smoothTime = 10f;
         public bool invertedLook = false;
         [Header("Movement\n")]
         public Rigidbody rb;
@@ -31,12 +31,12 @@ namespace Player
         private Vector3 PlayerRotation;
         private Vector2 inputDir = Vector2.zero;
         float MouseX, MouseY;
-        public float maxSpeed = 0;
+        private float maxSpeed = 0;
         private bool crouching = false;
         private bool sprinting = false;
         private bool jumping = false;
         private bool canJump = true;
-        public bool isGrounded = false;
+        private bool isGrounded = false;
         private void Start()
         {
             PlayerRotation = new Vector3(transform.localRotation.eulerAngles.x, 0, transform.localRotation.eulerAngles.z);
