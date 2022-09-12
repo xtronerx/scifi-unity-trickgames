@@ -20,10 +20,10 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        TakeDamage(151);
+        Damage(151);
     }
 
-    public void TakeDamage(byte intDamage)
+    public void Damage(byte intDamage)
     {
         CharacterType.TakeDamage(intDamage);
     }
