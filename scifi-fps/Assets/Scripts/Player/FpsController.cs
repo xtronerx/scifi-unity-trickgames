@@ -21,7 +21,7 @@ namespace Player
         public float groundFriction = 7.8f;
         public bool stopInstantly = false;
         public float jumpForce = 10;
-        public float stepOffset = 1f;
+        public float stepOffset = 2f;
         public LayerMask WhatIsGround;
         [Tooltip("The Y position from where the ray is being shot to check grounded")]
         public float groundCheckStartY = 0;
