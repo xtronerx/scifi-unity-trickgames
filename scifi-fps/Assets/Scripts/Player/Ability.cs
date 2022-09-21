@@ -1,13 +1,10 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Ability : MonoBehaviour
 {
-    private float intCurrentVelocity = 0;
-
     //<summery> Each player health goes here </summery>
     protected byte intMaxHealth;
 
@@ -26,9 +23,14 @@ public class Ability : MonoBehaviour
 
     private byte HealthbarSliderSmoothness;
 
-    public void InteractObjectConstructor(byte SliderSmooth)
+    [Tooltip("CooldownHUD Script for Configuring Cooldown")]
+    [SerializeField]
+    private CooldownHUD cooldownHUD;
+
+    public void InteractObjectConstructor(byte SliderSmooth, CooldownHUD cooldownScript)
     {
         HealthbarSliderSmoothness = SliderSmooth;
+        cooldownHUD = cooldownScript;
     }
 
     void Awake()
@@ -56,16 +58,20 @@ public class Ability : MonoBehaviour
         if (Worker())
         {
             _bolCooldown = true;
+            if (this.intCooldown != 
+                ((ushort) cooldownHUD.intCooldownTime))
+                cooldownHUD.SetCooldown((byte)intCooldown, true);
+            else cooldownHUD.SetCooldown();
             StartCoroutine(StartCooldown());
         }
     }
 
     private void LateUpdate()
     {
-        if(_HealthSlider.value * (intMaxHealth / 100) != intHealth)
+        if (_HealthSlider.value * (intMaxHealth / 100) != intHealth)
         {
-            _HealthSlider.value = Mathf.MoveTowards(_HealthSlider.value, 
-                intHealth / (intMaxHealth / 100), 
+            _HealthSlider.value = Mathf.MoveTowards(_HealthSlider.value,
+                intHealth / (intMaxHealth / 100),
                 HealthbarSliderSmoothness * Time.deltaTime);
             if (_HealthSlider.value < 50) _HealthCanvas.SetColor(Color.red);
             else _HealthCanvas.SetColor(Color.white);
@@ -79,11 +85,15 @@ public class Ability : MonoBehaviour
     }
 
     /**
-     * This function is for take damage from player health
+     * <summary>
+     *  This function is for take damage from player health
+     * </summary>
+     * <param name="intDamage">
+     *  The damage that player takes
+     * </param>
      */
     public void TakeDamage(byte intDamage)
     {
         intHealth -= intDamage;
-        
     }
 }

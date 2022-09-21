@@ -12,15 +12,15 @@ public class Character : MonoBehaviour
     [Tooltip("Smoothness Speed of Health Slider")]
     [SerializeField]
     private byte HealthBarSmoothness = 70;
+    [Tooltip("The Script That Control Cooldown")]
+    [SerializeField]
+    private CooldownHUD cooldownHUD;
     private void Awake()
     {
         CharacterType = gameObject.AddComponent(System.Type.GetType("DouubleJumpClass")) as Ability;
-        CharacterType.InteractObjectConstructor(HealthBarSmoothness);
-    }
-
-    private void Start()
-    {
-        Damage(151);
+        CharacterType.InteractObjectConstructor(HealthBarSmoothness, cooldownHUD);
+        cooldownHUD = null;
+        HealthBarSmoothness = 0;
     }
 
     public void Damage(byte intDamage)
