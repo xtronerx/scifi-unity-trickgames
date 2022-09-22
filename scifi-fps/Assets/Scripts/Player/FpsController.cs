@@ -36,7 +36,7 @@ namespace Player
         private bool sprinting = false;
         private bool jumping = false;
         private bool canJump = true;
-        public bool isGrounded = false;
+        public bool isGrounded { get; private set; } = false;
         private void Start()
         {
             PlayerRotation = new Vector3(transform.localRotation.eulerAngles.x, 0, transform.localRotation.eulerAngles.z);

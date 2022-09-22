@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,8 +14,8 @@ public class Ability : MonoBehaviour
 
     private Slider _HealthSlider;
     private CanvasRenderer _HealthCanvas;
-
-    private bool _bolCooldown;
+    [SerializeField]
+    public bool _bolCooldown { get; private set; } = false;
 
     //<summery> This function calls in Awake and has job to setup your variables </summery>
     protected virtual void Setup() { }
@@ -25,7 +24,7 @@ public class Ability : MonoBehaviour
 
     [Tooltip("CooldownHUD Script for Configuring Cooldown")]
     [SerializeField]
-    private CooldownHUD cooldownHUD;
+    protected CooldownHUD cooldownHUD;
 
     public void InteractObjectConstructor(byte SliderSmooth, CooldownHUD cooldownScript)
     {
@@ -57,11 +56,6 @@ public class Ability : MonoBehaviour
         if (_bolCooldown) return;
         if (Worker())
         {
-            _bolCooldown = true;
-            if (this.intCooldown != 
-                ((ushort) cooldownHUD.intCooldownTime))
-                cooldownHUD.SetCooldown((byte)intCooldown, true);
-            else cooldownHUD.SetCooldown();
             StartCoroutine(StartCooldown());
         }
     }
@@ -78,9 +72,13 @@ public class Ability : MonoBehaviour
         }
     }
 
-    private IEnumerator StartCooldown()
+    protected IEnumerator StartCooldown()
     {
-        yield return new WaitForSeconds(intCooldown);
+        _bolCooldown = true;
+        if (this.intCooldown != ((ushort)cooldownHUD.intCooldownTime))
+            cooldownHUD.SetCooldown((byte)intCooldown, true);
+        else cooldownHUD.SetCooldown();
+        yield return new WaitForSeconds(intCooldown + .1f);
         _bolCooldown = false;
     }
 

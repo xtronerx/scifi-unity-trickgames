@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
     private CooldownHUD cooldownHUD;
     private void Awake()
     {
-        CharacterType = gameObject.AddComponent(System.Type.GetType("DouubleJumpClass")) as Ability;
+        CharacterType = gameObject.AddComponent(System.Type.GetType("InvisibleClass")) as Ability;
         CharacterType.InteractObjectConstructor(HealthBarSmoothness, cooldownHUD);
         cooldownHUD = null;
         HealthBarSmoothness = 0;

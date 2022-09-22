@@ -7,10 +7,10 @@ public class CooldownHUD : MonoBehaviour
 {
     #region Public Properites 
     [HideInInspector]
-    public byte intCooldownTime = 7;
+    public byte intCooldownTime { get; private set; } = 7;
     [Header("Reference Properties")]
     [SerializeField] private Slider slider;
-
+    [SerializeField] private Image FillImage;
     [Space(15)]
 
     [Header("Countdown Properties")]
@@ -30,13 +30,10 @@ public class CooldownHUD : MonoBehaviour
         {
             timer -= Time.deltaTime;
             slider.value = timer;
-        }
-        //here you would do whatever you want to happen after the countdown completes...
-        else
-        {
-            Debug.Log("Cooldown Complete"); 
-            slider.gameObject.SetActive(false);
-            
+            if(timer < 0)
+            {
+                slider.gameObject.SetActive(false);
+            }
         }
         //Restarting the countdown...
         if (bolRestartCooldown)
@@ -62,6 +59,10 @@ public class CooldownHUD : MonoBehaviour
         {
             this.bolRestartCooldown = restartCooldown;
         }
+    }
+    public void changeColor(Color FillImageColor)
+    {
+        FillImage.color = FillImageColor;
     }
     #endregion
 }
