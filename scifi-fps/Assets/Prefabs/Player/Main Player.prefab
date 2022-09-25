@@ -544,6 +544,7 @@ GameObject:
   - component: {fileID: 8329370204431986819}
   - component: {fileID: 8329370204431986818}
   - component: {fileID: 170028427883100946}
+  - component: {fileID: 7456626159898481647}
   m_Layer: 0
   m_Name: Main Player
   m_TagString: Untagged
@@ -664,6 +665,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBarSmoothness: 70
   cooldownHUD: {fileID: 1466640154607939985}
+--- !u!114 &7456626159898481647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329370204431986817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8925116025065143489
 GameObject:
   m_ObjectHideFlags: 0
